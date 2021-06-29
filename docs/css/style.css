@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'VT323', monospace;
+    font-size: 2em;
+    color: #FFF;
+    font-size: 1.2em;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    background-image: url("../img/background.jpg");
+}
+
+instructions, startscreen, gamescreen, endscreen, background, robot, treasury, miniTreasury, megaTreasury {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+}
+
+instructions {
+    width: 100vw;
+    padding:14px;
+    font-size: 1.6em;
+    filter: drop-shadow(5px 5px 0px #000000);
+    z-index: 2;
+}
+
+startscreen div, endscreen div {
+    font-size: 3em;
+    padding-top: 26vh;
+    width: 100vw;
+    text-align: center;
+}
+
+startscreen button, endscreen button {
+    font-family: 'VT323', monospace;
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-left: calc(50vw - 100px);
+    color: white;
+    padding: 15px 32px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+background {
+    background-image: url('../img/background.png');
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-color: #B1BF5C;
+    width: 100vw;
+    height: 100vh;
+}
+
+robot {
+    background-image: url('../img/robot.png');
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 125px;
+    cursor: pointer;
+}
+
+robot:hover {
+    filter: hue-rotate(90deg);
+}
+
+treasury {
+    background-image: url('../img/schatkist.png');
+    z-index: 3;
+    width: 240px; 
+    height: 240px;
+    background-repeat: no-repeat;
+    margin-top: 100px
+}
+
+miniTreasury {
+    background-image: url('../img/schatkist.png');
+    z-index: 3;
+    width: 240px; 
+    height: 240px;
+    background-repeat: no-repeat;
+    margin-top: 500px
+}
+
+megaTreasury {
+    background-image: url('../img/schatkist.png');
+    z-index: 3;
+    width: 240px; 
+    height: 240px;
+    background-repeat: no-repeat;
+    margin-top: 800px
+}
