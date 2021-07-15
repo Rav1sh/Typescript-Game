@@ -4,7 +4,7 @@ import { GameScreen } from "./gamescreen.js"
 export class Sailor extends GameObject {
 
     private screen : GameScreen
-    private health : number = 1
+    private health : number = Math.floor(Math.random() * 4) + 1;
 
     constructor(screen : GameScreen){
         super("sailor")
