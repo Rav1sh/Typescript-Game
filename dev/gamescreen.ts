@@ -15,7 +15,7 @@ export class GameScreen extends GameObject {
     private miniTreasury : MiniTreasury[] =[]
     private megaTreasury : MegaTreasury[] =[]
 
-    private score : number = 0;
+    public score : number = 0;
     private scoreCounter: HTMLElement;
 
 
@@ -78,7 +78,6 @@ export class GameScreen extends GameObject {
 
     //update score
      this.scoreCounter.innerText = `${this.score}`;
-        
 
         this.background.update()
 
@@ -155,6 +154,10 @@ export class GameScreen extends GameObject {
 
 
         }
+
+        
+
+
 
         for(const sailor of this.sailors){
             sailor.update();

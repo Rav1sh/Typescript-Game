@@ -30,6 +30,7 @@ export class Sailor extends GameObject {
     private removeMe(){
         this.remove()
         this.screen.removeSailor(this)
+        this.screen.score += 5;
     }
 
     private getSlappedMate(){
