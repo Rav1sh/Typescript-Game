@@ -7,8 +7,8 @@ export class StartScreen extends GameObject {
         const btn = document.createElement("button");
         this.div.appendChild(text);
         this.div.appendChild(btn);
-        text.innerText = "Pixel Piracy";
-        btn.innerText = "Play Now ";
+        text.innerText = "🧟";
+        btn.innerText = "Start Now ";
         btn.addEventListener("click", () => this.gotoGameScreen());
     }
     gotoGameScreen() {

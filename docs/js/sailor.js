@@ -8,10 +8,10 @@ export class Sailor extends GameObject {
         let rand = Math.floor(Math.random() * 3);
         switch (rand) {
             case 0:
-                this.y = 100;
+                this.y = 150;
                 break;
             case 1:
-                this.y = 500;
+                this.y = 450;
                 break;
             case 2:
                 this.y = 800;

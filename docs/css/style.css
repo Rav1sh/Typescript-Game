@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'VT323', monospace;
+    font-family: 'Permanent Marker', cursive;
     font-size: 2em;
     color: #FFF;
     font-size: 1.2em;
@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-    background-image: url("../img/background.jpg");
+    background-image: url("../img/background.png");
 }
 
 instructions, startscreen, gamescreen, gamoverscreen, background, sailor, treasury, miniTreasury, megaTreasury {
@@ -37,10 +37,10 @@ startscreen div, gamoverscreen div {
 }
 
 startscreen button, gamoverscreen button {
-    font-family: 'VT323', monospace;
+    font-family: 'Permanent Marker', cursive;
     font-size: 1.5em;
     margin-top: 10px;
-    margin-left: calc(50vw - 100px);
+    margin-left: calc(50vw - 120px);
     color: white;
     padding: 15px 32px;
     background-color: #4CAF50;
@@ -53,7 +53,7 @@ startscreen button, gamoverscreen button {
 }
 
 background {
-    background-image: url('../img/background.png');
+    background-image: url('../img/bg.png');
     background-position: top center;
     background-repeat: repeat-x;
     background-color: #B1BF5C;
@@ -62,7 +62,7 @@ background {
 }
 
 sailor {
-    background-image: url('../img/robot.png');
+    background-image: url('../img/monster.png');
     background-repeat: no-repeat;
     width: 80px;
     height: 125px;
@@ -75,30 +75,30 @@ sailor:hover {
 }
 
 treasury {
-    background-image: url('../img/schatkist.png');
+    background-image: url('../img/building1.png');
     z-index: 3;
     width: 240px; 
     height: 240px;
     background-repeat: no-repeat;
-    margin-top: 100px
+    margin-top: 75px
 }
 
 miniTreasury {
-    background-image: url('../img/schatkist.png');
+    background-image: url('../img/building2.png');
     z-index: 3;
     width: 240px; 
     height: 240px;
     background-repeat: no-repeat;
-    margin-top: 500px
+    margin-top: 370px
 }
 
 megaTreasury {
-    background-image: url('../img/schatkist.png');
+    background-image: url('../img/building3.png');
     z-index: 3;
     width: 240px; 
     height: 240px;
     background-repeat: no-repeat;
-    margin-top: 800px
+    margin-top: 675px
 }
 
 /* .scoreCounter {
@@ -118,5 +118,5 @@ megaTreasury {
 }
 
 startscreen {
-    background-image: url("../img/background.jpg");
+    background-image: url("../img/background.png");
 }
