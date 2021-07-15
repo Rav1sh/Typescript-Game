@@ -17,7 +17,7 @@ export class GameScreen extends GameObject {
         const instructions = document.createElement("instructions");
         instructions.innerHTML = "Defend your treasuries! Click on the sailors to eliminate them.";
         this.div.appendChild(instructions);
-        this.sailors.push(new Sailor(this), new Sailor(this));
+        this.sailors.push(new Sailor(this), new Sailor(this), new Sailor(this));
         this.treasury.push(new Treasury(this));
         this.miniTreasury.push(new MiniTreasury(this));
         this.megaTreasury.push(new MegaTreasury(this));
@@ -59,9 +59,18 @@ export class GameScreen extends GameObject {
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length > 1) {
+                else if (this.sailors.length == 2) {
                     this.remove();
                     this.sailors[0].remove();
+                    this.treasury[0].remove();
+                    this.miniTreasury[0].remove();
+                    this.megaTreasury[0].remove();
+                }
+                else if (this.sailors.length == 3) {
+                    this.remove();
+                    this.sailors[0].remove();
+                    this.sailors[1].remove();
+                    this.sailors[2].remove();
                     this.treasury[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
@@ -76,9 +85,18 @@ export class GameScreen extends GameObject {
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length > 1) {
+                else if (this.sailors.length == 2) {
                     this.remove();
                     this.sailors[1].remove();
+                    this.treasury[0].remove();
+                    this.miniTreasury[0].remove();
+                    this.megaTreasury[0].remove();
+                }
+                else if (this.sailors.length == 3) {
+                    this.remove();
+                    this.sailors[0].remove();
+                    this.sailors[1].remove();
+                    this.sailors[2].remove();
                     this.treasury[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
@@ -92,9 +110,18 @@ export class GameScreen extends GameObject {
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length > 1) {
+                else if (this.sailors.length == 2) {
                     this.remove();
                     this.sailors[0].remove();
+                    this.treasury[0].remove();
+                    this.miniTreasury[0].remove();
+                    this.megaTreasury[0].remove();
+                }
+                else if (this.sailors.length == 3) {
+                    this.remove();
+                    this.sailors[0].remove();
+                    this.sailors[1].remove();
+                    this.sailors[2].remove();
                     this.treasury[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();

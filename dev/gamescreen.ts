@@ -30,6 +30,7 @@ export class GameScreen extends GameObject {
         
         this.sailors.push( 
             new Sailor(this), 
+            new Sailor(this), 
             new Sailor(this))
 
         this.treasury.push(new Treasury(this))
@@ -94,14 +95,22 @@ export class GameScreen extends GameObject {
                     this.treasury[0].remove()
                     this.miniTreasury[0].remove()
                     this.megaTreasury[0].remove()
-                } else if (this.sailors.length > 1) {
+                } else if (this.sailors.length == 2) {
                     this.remove()
                     this.sailors[0].remove()
                     // this.sailors[1].remove()
                     this.treasury[0].remove()
                     this.miniTreasury[0].remove()
                     this.megaTreasury[0].remove()
-                } 
+                }  else if (this.sailors.length == 3) {
+                    this.remove()
+                    this.sailors[0].remove()
+                    this.sailors[1].remove()
+                    this.sailors[2].remove()
+                    this.treasury[0].remove()
+                    this.miniTreasury[0].remove()
+                    this.megaTreasury[0].remove()
+                }
             }
 
             if(this.checkCollision(this.miniTreasury[0].getBoundingRect(), o.getBoundingRect())){
@@ -114,10 +123,18 @@ export class GameScreen extends GameObject {
                     this.treasury[0].remove()
                     this.miniTreasury[0].remove()
                     this.megaTreasury[0].remove()
-                } else if (this.sailors.length > 1) {
+                } else if (this.sailors.length == 2) {
                     this.remove()
                     this.sailors[1].remove()
                     // this.sailors[1].remove()
+                    this.treasury[0].remove()
+                    this.miniTreasury[0].remove()
+                    this.megaTreasury[0].remove()
+                } else if (this.sailors.length == 3) {
+                    this.remove()
+                    this.sailors[0].remove()
+                    this.sailors[1].remove()
+                    this.sailors[2].remove()
                     this.treasury[0].remove()
                     this.miniTreasury[0].remove()
                     this.megaTreasury[0].remove()
@@ -131,10 +148,18 @@ export class GameScreen extends GameObject {
                     this.treasury[0].remove()
                     this.miniTreasury[0].remove()
                     this.megaTreasury[0].remove()
-                } else if (this.sailors.length > 1) {
+                } else if (this.sailors.length == 2) {
                     this.remove()
                     this.sailors[0].remove()
                     // this.sailors[1].remove()
+                    this.treasury[0].remove()
+                    this.miniTreasury[0].remove()
+                    this.megaTreasury[0].remove()
+                }  else if (this.sailors.length == 3) {
+                    this.remove()
+                    this.sailors[0].remove()
+                    this.sailors[1].remove()
+                    this.sailors[2].remove()
                     this.treasury[0].remove()
                     this.miniTreasury[0].remove()
                     this.megaTreasury[0].remove()
