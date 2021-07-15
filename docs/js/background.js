@@ -4,9 +4,5 @@ export class Background extends GameObject {
         super("background");
         this.x = 0;
     }
-    update() {
-        this.x--;
-        this.element.style.backgroundPosition = `${this.x}px 0px`;
-    }
 }
 //# sourceMappingURL=background.js.map

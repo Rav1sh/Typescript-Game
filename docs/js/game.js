@@ -1,24 +1,24 @@
-import { EndScreen } from "./endscreen.js";
+import { GamOverScreen } from "./endscreen.js";
 import { GameScreen } from "./gamescreen.js";
 import { StartScreen } from "./startscreen.js";
-export class Game {
+export class PirateGame {
     constructor() {
-        this.showStartScreen();
+        this.startGame();
         this.gameLoop();
     }
-    showStartScreen() {
-        this.screen = new StartScreen(this);
+    startGame() {
+        this.interface = new StartScreen(this);
+    }
+    showGamOverScreen() {
+        this.interface = new GamOverScreen(this);
     }
     showGameScreen() {
-        this.screen = new GameScreen(this);
-    }
-    showEndScreen() {
-        this.screen = new EndScreen(this);
+        this.interface = new GameScreen(this);
     }
     gameLoop() {
-        this.screen.update();
+        this.interface.update();
         requestAnimationFrame(() => this.gameLoop());
     }
 }
-new Game();
+new PirateGame();
 //# sourceMappingURL=game.js.map

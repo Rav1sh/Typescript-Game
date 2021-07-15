@@ -1,13 +1,16 @@
 export class GameObject {
-    constructor(name) {
+    constructor(x) {
         this.x = 0;
         this.y = 0;
-        const gameElement = document.querySelector('game');
-        this.element = document.createElement(name);
-        gameElement.appendChild(this.element);
+        const gameDiv = document.querySelector('game');
+        this.div = document.createElement(x);
+        gameDiv.appendChild(this.div);
+    }
+    getBoundingRect() {
+        return this.div.getBoundingClientRect();
     }
     remove() {
-        this.element.remove();
+        this.div.remove();
     }
     update() {
     }

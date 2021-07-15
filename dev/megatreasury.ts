@@ -13,6 +13,6 @@ export class MegaTreasury extends GameObject {
         }
 
         public getBoundingRect() : DOMRect {
-            return this.element.getBoundingClientRect();
+            return this.div.getBoundingClientRect();
         }
     }

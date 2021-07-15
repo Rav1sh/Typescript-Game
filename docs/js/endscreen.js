@@ -1,19 +1,19 @@
 import { GameObject } from "./gameobject.js";
-export class EndScreen extends GameObject {
-    constructor(game) {
-        super("endscreen");
-        this.game = game;
-        const text = document.createElement("div");
-        const btn = document.createElement("button");
-        this.element.appendChild(text);
-        this.element.appendChild(btn);
-        text.innerText = "Game Over";
-        btn.innerText = "Back to start";
-        btn.addEventListener("click", () => this.gotoStartScreen());
+export class GamOverScreen extends GameObject {
+    constructor(pirateGame) {
+        super("gamOverScreen");
+        this.pirateGame = pirateGame;
+        const gameOverDiv = document.createElement("div");
+        gameOverDiv.innerText = "Game Over";
+        this.div.appendChild(gameOverDiv);
+        const gameOverButton = document.createElement("button");
+        gameOverButton.innerText = "Back to start";
+        this.div.appendChild(gameOverButton);
+        gameOverButton.addEventListener("click", () => this.playScreen());
     }
-    gotoStartScreen() {
+    playScreen() {
         this.remove();
-        this.game.showStartScreen();
+        this.pirateGame.startGame();
     }
 }
 //# sourceMappingURL=endscreen.js.map

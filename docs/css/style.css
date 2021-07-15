@@ -15,7 +15,7 @@ body {
     background-image: url("../img/background.jpg");
 }
 
-instructions, startscreen, gamescreen, endscreen, background, robot, treasury, miniTreasury, megaTreasury {
+instructions, startscreen, gamescreen, gamoverscreen, background, sailor, treasury, miniTreasury, megaTreasury {
     position: absolute;
     display: block;
     box-sizing: border-box;
@@ -29,14 +29,14 @@ instructions {
     z-index: 2;
 }
 
-startscreen div, endscreen div {
+startscreen div, gamoverscreen div {
     font-size: 3em;
     padding-top: 26vh;
     width: 100vw;
     text-align: center;
 }
 
-startscreen button, endscreen button {
+startscreen button, gamoverscreen button {
     font-family: 'VT323', monospace;
     font-size: 1.5em;
     margin-top: 10px;
@@ -61,15 +61,16 @@ background {
     height: 100vh;
 }
 
-robot {
+sailor {
     background-image: url('../img/robot.png');
     background-repeat: no-repeat;
     width: 80px;
     height: 125px;
     cursor: pointer;
+    z-index: 3px;
 }
 
-robot:hover {
+sailor:hover {
     filter: hue-rotate(90deg);
 }
 
@@ -98,4 +99,25 @@ megaTreasury {
     height: 240px;
     background-repeat: no-repeat;
     margin-top: 800px
+}
+
+/* .scoreCounter {
+    margin-left: 60px;
+    font-size: 2rem;
+    z-index: 5;
+} */
+
+.scoreCounter{
+    font-size: 40px;
+    font-family: Bradley Hand, cursive;
+    width: 200px;
+    z-index: 50;
+    text-align: right;
+    margin-top: 42px;
+    margin-left: 1550px;
+    position: relative;
+}
+
+startscreen {
+    background-image: url("../img/background.jpg");
 }

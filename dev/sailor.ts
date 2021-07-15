@@ -4,7 +4,7 @@ import { GameScreen } from "./gamescreen.js"
 export class Sailor extends GameObject {
 
     private screen : GameScreen
-    private health : number = 3
+    private health : number = 1
 
     constructor(screen : GameScreen){
         super("sailor")
