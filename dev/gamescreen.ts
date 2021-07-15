@@ -59,7 +59,9 @@ export class GameScreen extends GameObject {
             this.remove()
             this.pirateGame.showGamOverScreen()
             
-
+            this.treasury[0].remove()
+            this.miniTreasury[0].remove()
+            this.megaTreasury[0].remove()
             
         }
     }

@@ -34,6 +34,9 @@ export class GameScreen extends GameObject {
         if (this.sailors.length == 0) {
             this.remove();
             this.pirateGame.showGamOverScreen();
+            this.treasury[0].remove();
+            this.miniTreasury[0].remove();
+            this.megaTreasury[0].remove();
         }
     }
     removeTreasury(treasury) {
