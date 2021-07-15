@@ -1,7 +1,7 @@
 import { GamOverScreen } from "./endscreen.js";
 import { GameScreen } from "./gamescreen.js";
 import { StartScreen } from "./startscreen.js";
-export class PirateGame {
+export class MonsterGame {
     constructor() {
         this.startGame();
         this.gameLoop();
@@ -20,5 +20,5 @@ export class PirateGame {
         requestAnimationFrame(() => this.gameLoop());
     }
 }
-new PirateGame();
+new MonsterGame();
 //# sourceMappingURL=game.js.map

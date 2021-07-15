@@ -1,8 +1,8 @@
 import { GameObject } from "./gameobject.js";
 export class StartScreen extends GameObject {
-    constructor(pirateGame) {
+    constructor(monsterGame) {
         super("startscreen");
-        this.pirateGame = pirateGame;
+        this.monsterGame = monsterGame;
         const text = document.createElement("div");
         const btn = document.createElement("button");
         this.div.appendChild(text);
@@ -13,7 +13,7 @@ export class StartScreen extends GameObject {
     }
     gotoGameScreen() {
         this.remove();
-        this.pirateGame.showGameScreen();
+        this.monsterGame.showGameScreen();
     }
 }
 //# sourceMappingURL=startscreen.js.map

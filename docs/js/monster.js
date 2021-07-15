@@ -1,7 +1,7 @@
 import { GameObject } from "./gameobject.js";
-export class Sailor extends GameObject {
+export class Monster extends GameObject {
     constructor(screen) {
-        super("sailor");
+        super("monster");
         this.health = Math.floor(Math.random() * 4) + 1;
         this.screen = screen;
         this.x = Math.random() * 600 + window.innerWidth;
@@ -21,7 +21,7 @@ export class Sailor extends GameObject {
     }
     removeMe() {
         this.remove();
-        this.screen.removeSailor(this);
+        this.screen.removeMonster(this);
         this.screen.score += 5;
     }
     monsterSlap() {
@@ -50,4 +50,4 @@ export class Sailor extends GameObject {
         this.div.style.transform = `translate(${this.x}px, ${this.y}px)`;
     }
 }
-//# sourceMappingURL=sailor.js.map
+//# sourceMappingURL=monster.js.map

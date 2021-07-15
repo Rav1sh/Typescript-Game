@@ -3,7 +3,7 @@ import { GameObject } from "./gameobject.js"
 import { GameScreen } from "./gamescreen.js"
 import { StartScreen } from "./startscreen.js"
 
-export class PirateGame {
+export class MonsterGame {
 
     private interface : GameObject
 
@@ -30,4 +30,4 @@ export class PirateGame {
     }
 }
 
-new PirateGame()
+new MonsterGame()

@@ -1,13 +1,13 @@
 import { GameObject } from "./gameobject.js"
 import { GameScreen } from "./gamescreen.js"
 
-export class Sailor extends GameObject {
+export class Monster extends GameObject {
 
     private screen : GameScreen
     private health : number = Math.floor(Math.random() * 4) + 1;
 
     constructor(screen : GameScreen){
-        super("sailor")
+        super("monster")
         this.screen = screen
         this.x = Math.random() * 600 + window.innerWidth
 
@@ -24,16 +24,16 @@ export class Sailor extends GameObject {
                     this.y = 800;
                     break;
             }
-        this.div.addEventListener("click", ()=>this.getSlappedMate())
+        this.div.addEventListener("click", ()=>this.monsterSlap())
     }
 
     private removeMe(){
         this.remove()
-        this.screen.removeSailor(this)
+        this.screen.removeMonster(this)
         this.screen.score += 5;
     }
 
-    private getSlappedMate(){
+    private monsterSlap(){
         this.health -=1
         if(this.health <=0){
             this.removeMe();

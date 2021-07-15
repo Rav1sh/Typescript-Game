@@ -1,14 +1,14 @@
 import { GameObject } from "./gameobject.js"
-import { PirateGame } from "./game.js"
+import { MonsterGame } from "./game.js"
 
 export class StartScreen extends GameObject {
 
-    private pirateGame : PirateGame
+    private monsterGame : MonsterGame
     
-    constructor(pirateGame: PirateGame) {
+    constructor(monsterGame: MonsterGame) {
         super("startscreen")
 
-        this.pirateGame = pirateGame
+        this.monsterGame = monsterGame
         
         const text = document.createElement("div")
         const btn = document.createElement("button")
@@ -24,6 +24,6 @@ export class StartScreen extends GameObject {
 
     private gotoGameScreen(){
         this.remove()
-        this.pirateGame.showGameScreen()
+        this.monsterGame.showGameScreen()
     }
 }

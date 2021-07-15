@@ -1,20 +1,20 @@
 import { GameObject } from "./gameobject.js"
-import { PirateGame } from "./game.js"
+import { MonsterGame } from "./game.js"
 
 export class GamOverScreen extends GameObject {
 
-    private pirateGame : PirateGame
+    private monsterGame : MonsterGame
 
-    constructor(pirateGame: PirateGame) {
+    constructor(monsterGame: MonsterGame) {
         super("gamOverScreen")
-        this.pirateGame = pirateGame
+        this.monsterGame =  monsterGame
 
         const gameOverDiv = document.createElement("div")
         gameOverDiv.innerText = "Game Over"
         this.div.appendChild(gameOverDiv)
 
         const gameOverButton = document.createElement("button")
-        gameOverButton.innerText = "Back to start"
+        gameOverButton.innerText = "Go to start"
         this.div.appendChild(gameOverButton)
 
         gameOverButton.addEventListener("click", () => this.playScreen())
@@ -22,6 +22,6 @@ export class GamOverScreen extends GameObject {
 
     private playScreen() {
         this.remove()
-        this.pirateGame.startGame()
+        this.monsterGame.startGame()
     }
 }

@@ -15,7 +15,7 @@ body {
     background-image: url("../img/background.png");
 }
 
-instructions, startscreen, gamescreen, gamoverscreen, background, sailor, treasury, miniTreasury, megaTreasury {
+instructions, startscreen, gamescreen, gamoverscreen, background, monster, miniBuilding, miniTreasury, megaTreasury {
     position: absolute;
     display: block;
     box-sizing: border-box;
@@ -62,7 +62,7 @@ background {
     height: 100vh;
 }
 
-sailor {
+monster {
     background-image: url('../img/monster.png');
     background-repeat: no-repeat;
     width: 80px;
@@ -71,11 +71,11 @@ sailor {
     z-index: 3px;
 }
 
-sailor:hover {
+monster:hover {
     filter: hue-rotate(90deg);
 }
 
-treasury {
+miniBuilding {
     background-image: url('../img/building1.png');
     z-index: 3;
     width: 240px; 

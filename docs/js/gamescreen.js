@@ -1,24 +1,24 @@
 import { Background } from "./background.js";
 import { GameObject } from "./gameobject.js";
-import { Sailor } from "./sailor.js";
-import { Treasury } from "./treasury.js";
+import { Monster } from "./monster.js";
+import { MiniBuilding } from "./minibuilding.js";
 import { MiniTreasury } from "./minitreasury.js";
 import { MegaTreasury } from "./megatreasury.js";
 export class GameScreen extends GameObject {
     constructor(g) {
         super("gamescreen");
-        this.sailors = [];
-        this.treasury = [];
+        this.score = 0;
+        this.monsters = [];
+        this.miniBuilding = [];
         this.miniTreasury = [];
         this.megaTreasury = [];
-        this.score = 0;
         this.background = new Background();
-        this.pirateGame = g;
+        this.monsterGame = g;
         const instructions = document.createElement("instructions");
         instructions.innerHTML = "Defend your buildings! Click on the Monsters to eliminate them.";
         this.div.appendChild(instructions);
-        this.sailors.push(new Sailor(this), new Sailor(this), new Sailor(this), new Sailor(this));
-        this.treasury.push(new Treasury(this));
+        this.monsters.push(new Monster(this), new Monster(this), new Monster(this), new Monster(this));
+        this.miniBuilding.push(new MiniBuilding(this));
         this.miniTreasury.push(new MiniTreasury(this));
         this.megaTreasury.push(new MegaTreasury(this));
         const gamescreen = document.getElementsByTagName("gamescreen")[0];
@@ -29,139 +29,133 @@ export class GameScreen extends GameObject {
         overlay.appendChild(this.scoreCounter);
         gamescreen.appendChild(overlay);
     }
-    removeSailor(sailors) {
-        this.sailors = this.sailors.filter(rob => rob != sailors);
-        if (this.sailors.length == 0) {
+    removeMonster(monsters) {
+        this.monsters = this.monsters.filter(rob => rob != monsters);
+        if (this.monsters.length == 0) {
             this.remove();
-            this.pirateGame.showGamOverScreen();
-            this.treasury[0].remove();
+            this.miniBuilding[0].remove();
             this.miniTreasury[0].remove();
             this.megaTreasury[0].remove();
+            this.monsterGame.showGamOverScreen();
         }
     }
-    removeTreasury(treasury) {
-        this.treasury = this.treasury.filter(treasure => treasure != treasury);
-        if (this.treasury.length == 0) {
+    removeTreasury(miniBuilding) {
+        this.miniBuilding = this.miniBuilding.filter(building => building != miniBuilding);
+        if (this.miniBuilding.length == 0) {
             this.remove();
-            this.pirateGame.showGamOverScreen();
+            this.monsterGame.showGamOverScreen();
         }
     }
     update() {
         this.scoreCounter.innerText = `${this.score}`;
         this.background.update();
-        for (let o of this.sailors) {
+        for (let o of this.monsters) {
             o.update();
-            if (this.checkCollision(this.treasury[0].getBoundingRect(), o.getBoundingRect())) {
-                if (this.sailors.length == 1) {
+            if (this.checkCollision(this.miniBuilding[0].getBoundingRect(), o.getBoundingRect())) {
+                if (this.monsters.length == 1) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 2) {
+                else if (this.monsters.length == 2) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 3) {
+                else if (this.monsters.length == 3) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.sailors[1].remove();
-                    this.sailors[2].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.monsters[1].remove();
+                    this.monsters[2].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 4) {
+                else if (this.monsters.length == 4) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.sailors[1].remove();
-                    this.sailors[2].remove();
-                    this.sailors[3].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.monsters[1].remove();
+                    this.monsters[2].remove();
+                    this.monsters[3].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
             }
             if (this.checkCollision(this.miniTreasury[0].getBoundingRect(), o.getBoundingRect())) {
-                this.pirateGame.showGamOverScreen();
-                if (this.sailors.length == 1) {
+                this.monsterGame.showGamOverScreen();
+                if (this.monsters.length == 1) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 2) {
+                else if (this.monsters.length == 2) {
                     this.remove();
-                    this.sailors[1].remove();
-                    this.treasury[0].remove();
+                    this.monsters[1].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 3) {
+                else if (this.monsters.length == 3) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.sailors[1].remove();
-                    this.sailors[2].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.monsters[1].remove();
+                    this.monsters[2].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 4) {
+                else if (this.monsters.length == 4) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.sailors[1].remove();
-                    this.sailors[2].remove();
-                    this.sailors[3].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.monsters[1].remove();
+                    this.monsters[2].remove();
+                    this.monsters[3].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
             }
             if (this.checkCollision(this.megaTreasury[0].getBoundingRect(), o.getBoundingRect())) {
-                if (this.sailors.length == 1) {
+                if (this.monsters.length == 1) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 2) {
+                else if (this.monsters.length == 2) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 3) {
+                else if (this.monsters.length == 3) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.sailors[1].remove();
-                    this.sailors[2].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.monsters[1].remove();
+                    this.monsters[2].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-                else if (this.sailors.length == 4) {
+                else if (this.monsters.length == 4) {
                     this.remove();
-                    this.sailors[0].remove();
-                    this.sailors[1].remove();
-                    this.sailors[2].remove();
-                    this.sailors[3].remove();
-                    this.treasury[0].remove();
+                    this.monsters[0].remove();
+                    this.monsters[1].remove();
+                    this.monsters[2].remove();
+                    this.monsters[3].remove();
+                    this.miniBuilding[0].remove();
                     this.miniTreasury[0].remove();
                     this.megaTreasury[0].remove();
                 }
-            }
-        }
-        for (const sailor of this.sailors) {
-            sailor.update();
-            if (this.checkCollision(sailor.getBoundingRect(), this.treasury[0].getBoundingRect())) {
-                this.score += 5;
             }
         }
     }
