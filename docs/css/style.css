@@ -41,6 +41,7 @@ startscreen button, gamoverscreen button {
     font-size: 1.5em;
     margin-top: 10px;
     margin-left: calc(50vw - 120px);
+    border-radius: 60px;
     color: white;
     padding: 15px 32px;
     background-color: #4CAF50;
