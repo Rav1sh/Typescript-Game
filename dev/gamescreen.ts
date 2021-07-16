@@ -29,6 +29,7 @@ constructor(g:MonsterGame) {
         new Monster(this), 
         new Monster(this), 
         new Monster(this), 
+        new Monster(this), 
         new Monster(this))
 
     this.miniBuilding.push(new MiniBuilding(this))
@@ -72,112 +73,31 @@ public update(){
         o.update()
 
         if(this.checkCollision(this.miniBuilding[0].getBoundingRect(), o.getBoundingRect())){
-            
-            if(this.monsters.length == 1){
-                this.remove()
-                this.monsters[0].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            } else if (this.monsters.length == 2) {
-                this.remove()
-                this.monsters[0].remove()
-                // this.sailors[1].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            }  else if (this.monsters.length == 3) {
-                this.remove()
-                this.monsters[0].remove()
-                this.monsters[1].remove()
-                this.monsters[2].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            } else if (this.monsters.length == 4) {
-                this.remove()
-                this.monsters[0].remove()
-                this.monsters[1].remove()
-                this.monsters[2].remove()
-                this.monsters[3].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            }
+            this.removeObjects()
         }
 
         if(this.checkCollision(this.miniTreasury[0].getBoundingRect(), o.getBoundingRect())){
-
             this.monsterGame.showGamOverScreen()
-            
-            if(this.monsters.length == 1){
-                this.remove()
-                this.monsters[0].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            } else if (this.monsters.length == 2) {
-                this.remove()
-                this.monsters[1].remove()
-                // this.sailors[1].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            } else if (this.monsters.length == 3) {
-                this.remove()
-                this.monsters[0].remove()
-                this.monsters[1].remove()
-                this.monsters[2].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            } else if (this.monsters.length == 4) {
-                this.remove()
-                this.monsters[0].remove()
-                this.monsters[1].remove()
-                this.monsters[2].remove()
-                this.monsters[3].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            }
+            this.removeObjects()
         }
 
         if(this.checkCollision(this.megaTreasury[0].getBoundingRect(), o.getBoundingRect())){
-            if(this.monsters.length == 1){
-                this.remove()
-                this.monsters[0].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            } else if (this.monsters.length == 2) {
-                this.remove()
-                this.monsters[0].remove()
-                // this.sailors[1].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            }  else if (this.monsters.length == 3) {
-                this.remove()
-                this.monsters[0].remove()
-                this.monsters[1].remove()
-                this.monsters[2].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            } else if (this.monsters.length == 4) {
-                this.remove()
-                this.monsters[0].remove()
-                this.monsters[1].remove()
-                this.monsters[2].remove()
-                this.monsters[3].remove()
-                this.miniBuilding[0].remove()
-                this.miniTreasury[0].remove()
-                this.megaTreasury[0].remove()
-            }
+            this.removeObjects()
         }
     }
 }
+
+
+
+    private removeObjects(){
+        for (let i = 0; i < this.monsters.length; i++) {
+            this.remove()
+            this.monsters[i].remove()
+            this.miniBuilding[0].remove()
+            this.miniTreasury[0].remove()
+            this.megaTreasury[0].remove()
+          } 
+    }   
 
     private checkCollision(a: ClientRect, b: ClientRect) {
         return (a.left <= b.right &&

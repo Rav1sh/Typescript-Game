@@ -17,7 +17,7 @@ export class GameScreen extends GameObject {
         const instructions = document.createElement("instructions");
         instructions.innerHTML = "Defend your buildings! Click on the Monsters to eliminate them.";
         this.div.appendChild(instructions);
-        this.monsters.push(new Monster(this), new Monster(this), new Monster(this), new Monster(this));
+        this.monsters.push(new Monster(this), new Monster(this), new Monster(this), new Monster(this), new Monster(this));
         this.miniBuilding.push(new MiniBuilding(this));
         this.miniTreasury.push(new MiniTreasury(this));
         this.megaTreasury.push(new MegaTreasury(this));
@@ -52,111 +52,24 @@ export class GameScreen extends GameObject {
         for (let o of this.monsters) {
             o.update();
             if (this.checkCollision(this.miniBuilding[0].getBoundingRect(), o.getBoundingRect())) {
-                if (this.monsters.length == 1) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 2) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 3) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.monsters[1].remove();
-                    this.monsters[2].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 4) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.monsters[1].remove();
-                    this.monsters[2].remove();
-                    this.monsters[3].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
+                this.removeObjects();
             }
             if (this.checkCollision(this.miniTreasury[0].getBoundingRect(), o.getBoundingRect())) {
                 this.monsterGame.showGamOverScreen();
-                if (this.monsters.length == 1) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 2) {
-                    this.remove();
-                    this.monsters[1].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 3) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.monsters[1].remove();
-                    this.monsters[2].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 4) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.monsters[1].remove();
-                    this.monsters[2].remove();
-                    this.monsters[3].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
+                this.removeObjects();
             }
             if (this.checkCollision(this.megaTreasury[0].getBoundingRect(), o.getBoundingRect())) {
-                if (this.monsters.length == 1) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 2) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 3) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.monsters[1].remove();
-                    this.monsters[2].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
-                else if (this.monsters.length == 4) {
-                    this.remove();
-                    this.monsters[0].remove();
-                    this.monsters[1].remove();
-                    this.monsters[2].remove();
-                    this.monsters[3].remove();
-                    this.miniBuilding[0].remove();
-                    this.miniTreasury[0].remove();
-                    this.megaTreasury[0].remove();
-                }
+                this.removeObjects();
             }
+        }
+    }
+    removeObjects() {
+        for (let i = 0; i < this.monsters.length; i++) {
+            this.remove();
+            this.monsters[i].remove();
+            this.miniBuilding[0].remove();
+            this.miniTreasury[0].remove();
+            this.megaTreasury[0].remove();
         }
     }
     checkCollision(a, b) {
