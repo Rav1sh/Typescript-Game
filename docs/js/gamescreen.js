@@ -17,7 +17,7 @@ export class GameScreen extends GameObject {
         const instructions = document.createElement("instructions");
         instructions.innerHTML = "Defend your buildings! Click on the Monsters to eliminate them.";
         this.div.appendChild(instructions);
-        this.monsters.push(new Monster(this), new Monster(this), new Monster(this), new Monster(this), new Monster(this));
+        this.monsters.push(new Monster(this), new Monster(this), new Monster(this), new Monster(this), new Monster(this), new Monster(this));
         this.miniBuilding.push(new MiniBuilding(this));
         this.miniTreasury.push(new MiniTreasury(this));
         this.megaTreasury.push(new MegaTreasury(this));
@@ -36,14 +36,14 @@ export class GameScreen extends GameObject {
             this.miniBuilding[0].remove();
             this.miniTreasury[0].remove();
             this.megaTreasury[0].remove();
-            this.monsterGame.showGamOverScreen();
+            this.monsterGame.showGamOverScreen(this.score);
         }
     }
     removeTreasury(miniBuilding) {
         this.miniBuilding = this.miniBuilding.filter(building => building != miniBuilding);
         if (this.miniBuilding.length == 0) {
             this.remove();
-            this.monsterGame.showGamOverScreen();
+            this.monsterGame.showGamOverScreen(this.score);
         }
     }
     update() {
@@ -55,7 +55,7 @@ export class GameScreen extends GameObject {
                 this.removeObjects();
             }
             if (this.checkCollision(this.miniTreasury[0].getBoundingRect(), o.getBoundingRect())) {
-                this.monsterGame.showGamOverScreen();
+                this.monsterGame.showGamOverScreen(this.score);
                 this.removeObjects();
             }
             if (this.checkCollision(this.megaTreasury[0].getBoundingRect(), o.getBoundingRect())) {

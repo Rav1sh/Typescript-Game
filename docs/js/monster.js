@@ -2,7 +2,7 @@ import { GameObject } from "./gameobject.js";
 export class Monster extends GameObject {
     constructor(screen) {
         super("monster");
-        this.health = Math.floor(Math.random() * 30) + 1;
+        this.health = Math.floor(Math.random() * 4) + 1;
         this.screen = screen;
         this.x = Math.random() * 600 + window.innerWidth;
         let rand = Math.floor(Math.random() * 3);

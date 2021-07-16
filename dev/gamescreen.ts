@@ -30,6 +30,7 @@ constructor(g:MonsterGame) {
         new Monster(this), 
         new Monster(this), 
         new Monster(this), 
+        new Monster(this), 
         new Monster(this))
 
     this.miniBuilding.push(new MiniBuilding(this))
@@ -53,7 +54,7 @@ public removeMonster(monsters : Monster){
         this.miniBuilding[0].remove()
         this.miniTreasury[0].remove()
         this.megaTreasury[0].remove()
-        this.monsterGame.showGamOverScreen() 
+        this.monsterGame.showGamOverScreen(this.score) 
     }
 }
 
@@ -61,7 +62,7 @@ public removeTreasury(miniBuilding : MiniBuilding){
     this.miniBuilding = this.miniBuilding.filter(building => building != miniBuilding)
     if (this.miniBuilding.length == 0) {
         this.remove()
-        this.monsterGame.showGamOverScreen()
+        this.monsterGame.showGamOverScreen(this.score)
     }
 }
 
@@ -77,7 +78,7 @@ public update(){
         }
 
         if(this.checkCollision(this.miniTreasury[0].getBoundingRect(), o.getBoundingRect())){
-            this.monsterGame.showGamOverScreen()
+            this.monsterGame.showGamOverScreen(this.score)
             this.removeObjects()
         }
 

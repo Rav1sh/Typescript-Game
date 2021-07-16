@@ -16,8 +16,8 @@ export class MonsterGame {
         this.interface = new StartScreen(this)
     }
     
-    public showGamOverScreen(){
-        this.interface = new GamOverScreen(this)
+    public showGamOverScreen(score: number){
+        this.interface = new GamOverScreen(this, score)
     }
 
     public showGameScreen(){
