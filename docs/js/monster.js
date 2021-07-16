@@ -17,14 +17,14 @@ export class Monster extends GameObject {
                 this.y = 800;
                 break;
         }
-        this.div.addEventListener("click", () => this.monsterSlap());
+        this.div.addEventListener("click", () => this.clickMonster());
     }
     removeMe() {
         this.remove();
         this.screen.removeMonster(this);
-        this.screen.score += 5;
+        this.screen.score += 2;
     }
-    monsterSlap() {
+    clickMonster() {
         this.health -= 1;
         if (this.health <= 0) {
             this.removeMe();

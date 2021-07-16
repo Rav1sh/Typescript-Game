@@ -1,13 +1,12 @@
 import { GameObject } from "./gameobject.js"
 import { GameScreen } from "./gamescreen.js"
 
-export class MegaTreasury extends GameObject {
+export class NormalBuilding extends GameObject {
 
     private screen : GameScreen
-    private health : number = 3
 
     constructor(screen : GameScreen){
-        super("megaTreasury")
+        super("normalBuilding")
         this.screen = screen
         this.x = Math.random() * 600 + window.innerWidth              
         }

@@ -24,16 +24,16 @@ export class Monster extends GameObject {
                     this.y = 800;
                     break;
             }
-        this.div.addEventListener("click", ()=>this.monsterSlap())
+        this.div.addEventListener("click", ()=>this.clickMonster())
     }
 
     private removeMe(){
         this.remove()
         this.screen.removeMonster(this)
-        this.screen.score += 5;
+        this.screen.score += 2;
     }
 
-    private monsterSlap(){
+    private clickMonster(){
         this.health -=1
         if(this.health <=0){
             this.removeMe();
@@ -42,6 +42,7 @@ export class Monster extends GameObject {
 
     public update(): void{
         this.x += -3
+
         if(this.x + this.div.clientWidth < 0) {
             this.x = window.innerWidth
             let rand : number = Math.floor(Math.random() * 3);

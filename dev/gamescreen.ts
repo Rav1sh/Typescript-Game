@@ -3,8 +3,8 @@ import { MonsterGame } from "./game.js"
 import { GameObject } from "./gameobject.js"
 import { Monster } from "./monster.js"
 import { MiniBuilding } from "./minibuilding.js"
-import { MiniTreasury } from "./minitreasury.js"
-import { MegaTreasury } from "./megatreasury.js"
+import { NormalBuilding } from "./normalbuilding.js"
+import { MegaBuilding } from "./megabuilding.js"
 
 export class GameScreen extends GameObject {
 
@@ -14,8 +14,8 @@ private monsterGame : MonsterGame
 private background: Background
 private monsters:Monster[] = []
 private miniBuilding : MiniBuilding[] = []
-private miniTreasury : MiniTreasury[] =[]
-private megaTreasury : MegaTreasury[] =[]
+private normalBuilding : NormalBuilding[] =[]
+private megaBuilding : MegaBuilding[] =[]
 
 constructor(g:MonsterGame) {
     super("gamescreen")
@@ -34,8 +34,8 @@ constructor(g:MonsterGame) {
         new Monster(this))
 
     this.miniBuilding.push(new MiniBuilding(this))
-    this.miniTreasury.push(new MiniTreasury(this))
-    this.megaTreasury.push(new MegaTreasury(this))
+    this.normalBuilding.push(new NormalBuilding(this))
+    this.megaBuilding.push(new MegaBuilding(this))
 
     const gamescreen = document.getElementsByTagName("gamescreen")[0];
     const overlay = document.createElement('overlay');
@@ -52,8 +52,8 @@ public removeMonster(monsters : Monster){
     if (this.monsters.length == 0) {
         this.remove()
         this.miniBuilding[0].remove()
-        this.miniTreasury[0].remove()
-        this.megaTreasury[0].remove()
+        this.normalBuilding[0].remove()
+        this.megaBuilding[0].remove()
         this.monsterGame.showGamOverScreen(this.score) 
     }
 }
@@ -77,26 +77,24 @@ public update(){
             this.removeObjects()
         }
 
-        if(this.checkCollision(this.miniTreasury[0].getBoundingRect(), o.getBoundingRect())){
+        if(this.checkCollision(this.normalBuilding[0].getBoundingRect(), o.getBoundingRect())){
             this.monsterGame.showGamOverScreen(this.score)
             this.removeObjects()
         }
 
-        if(this.checkCollision(this.megaTreasury[0].getBoundingRect(), o.getBoundingRect())){
+        if(this.checkCollision(this.megaBuilding[0].getBoundingRect(), o.getBoundingRect())){
             this.removeObjects()
         }
     }
 }
-
-
 
     private removeObjects(){
         for (let i = 0; i < this.monsters.length; i++) {
             this.remove()
             this.monsters[i].remove()
             this.miniBuilding[0].remove()
-            this.miniTreasury[0].remove()
-            this.megaTreasury[0].remove()
+            this.normalBuilding[0].remove()
+            this.megaBuilding[0].remove()
           } 
     }   
 

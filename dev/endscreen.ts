@@ -17,10 +17,10 @@ export class GamOverScreen extends GameObject {
         gameOverButton.innerText = "Go to start"
         this.div.appendChild(gameOverButton)
 
-        const scoreCounter = document.createElement('h1')
-        scoreCounter.innerText = `Score: ${score}`
-        scoreCounter.classList.add('test');
-        this.div.appendChild(scoreCounter)
+        const finalScore = document.createElement('h1')
+        finalScore.innerText = `Score: ${score}`
+        finalScore.classList.add('endScore')
+        this.div.appendChild(finalScore)
 
         gameOverButton.addEventListener("click", () => this.playScreen())
     }

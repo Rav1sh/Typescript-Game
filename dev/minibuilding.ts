@@ -4,7 +4,6 @@ import { GameScreen } from "./gamescreen.js"
 export class MiniBuilding extends GameObject {
 
     private screen : GameScreen
-    private health : number = 3
 
     constructor(screen : GameScreen){
         super("miniBuilding")

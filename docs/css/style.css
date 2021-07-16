@@ -15,7 +15,7 @@ body {
     background-image: url("../img/background.png");
 }
 
-instructions, startscreen, gamescreen, gamoverscreen, background, monster, miniBuilding, miniTreasury, megaTreasury {
+instructions, startscreen, gamescreen, gamoverscreen, background, monster, miniBuilding, normalBuilding, megaBuilding {
     position: absolute;
     display: block;
     box-sizing: border-box;
@@ -84,7 +84,7 @@ miniBuilding {
     margin-top: 75px
 }
 
-miniTreasury {
+normalBuilding {
     background-image: url('../img/building2.png');
     z-index: 3;
     width: 240px; 
@@ -93,7 +93,7 @@ miniTreasury {
     margin-top: 370px
 }
 
-megaTreasury {
+megaBuilding {
     background-image: url('../img/building3.png');
     z-index: 3;
     width: 240px; 
@@ -119,10 +119,12 @@ megaTreasury {
 }
 
 startscreen {
+    width: 1920px;
+    height: 1080px;
     background-image: url("../img/background.png");
 }
 
-.test{
+.endScore{
     font-size: 1.2em;
     margin-top: 20px;
     margin-left: calc(50vw - 100px);
