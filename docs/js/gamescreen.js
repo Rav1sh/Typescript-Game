@@ -39,13 +39,6 @@ export class GameScreen extends GameObject {
             this.monsterGame.showGamOverScreen(this.score);
         }
     }
-    removeTreasury(miniBuilding) {
-        this.miniBuilding = this.miniBuilding.filter(building => building != miniBuilding);
-        if (this.miniBuilding.length == 0) {
-            this.remove();
-            this.monsterGame.showGamOverScreen(this.score);
-        }
-    }
     update() {
         this.scoreCounter.innerText = `${this.score}`;
         this.background.update();

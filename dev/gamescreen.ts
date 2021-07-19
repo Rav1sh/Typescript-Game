@@ -58,14 +58,6 @@ public removeMonster(monsters : Monster){
     }
 }
 
-public removeTreasury(miniBuilding : MiniBuilding){
-    this.miniBuilding = this.miniBuilding.filter(building => building != miniBuilding)
-    if (this.miniBuilding.length == 0) {
-        this.remove()
-        this.monsterGame.showGamOverScreen(this.score)
-    }
-}
-
 public update(){
     this.scoreCounter.innerText = `${this.score}`;
     this.background.update()
