@@ -5,5 +5,8 @@ export class MiniBuilding extends GameObject {
         this.screen = screen;
         this.x = Math.random() * 600 + window.innerWidth;
     }
+    getBoundingRect() {
+        return this.div.getBoundingClientRect();
+    }
 }
 //# sourceMappingURL=minibuilding.js.map
