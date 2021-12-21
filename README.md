@@ -1,2 +1,2 @@
 # Treasury
-Defend your treasuries!
+In de game heb je de monsters en de gebouwen. Helemaal aan de linker kant van je beeldscherm heb je de gebouwen. Vanuit de rechterkant van je beeldscherm komen de monsters. Je beeldscherm is daardoor ook verdeeld in 3 gedeeltes horizontaal. Zodara de monsters in aanraking komen met een gebouw heb je de game verloren. Daarvoor heb ik dus een aparte class voor de gebouwen, de monsters, gameobject, achtergrond etc. In totaal heb ik 10 classes.
